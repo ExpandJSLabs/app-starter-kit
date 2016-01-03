@@ -1,7 +1,0 @@
-??? Create build config file ???
-
-1. Install banner
-2. Add service worker
-3. Add push notifications
-4. Add github pages generator
-5. Add deployment options
