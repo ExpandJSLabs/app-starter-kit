@@ -15753,7 +15753,6 @@ Polymer.XPI18nBehaviorImp = {
          * @returns {Array | Object | string}
          */
         localize: function (string, locale) {
-            console.log(string, locale, this);
             return XP.localize(string, locale);
         },
 

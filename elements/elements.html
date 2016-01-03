@@ -3924,7 +3924,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
             }
         </style>
 
-
+        
         <xp-router id="router" selected="{{selected}}" index-attribute="name">
             <xp-route name="home" path="/"></xp-route>
             <xp-route name="routing" path="/routing"></xp-route>
@@ -3932,22 +3932,22 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
             <xp-route name="localization" path="/localization"></xp-route>
         </xp-router>
 
-
+        
         <mat-drawer-panel>
 
-
+            
             <mat-drawer id="drawer" narrow="{{mobile}}">
 
-
+                
                 <mat-header-panel mode="seamed">
 
-
+                    
                     <mat-header>
                         <div class="label">[[localize('menu', locale)]]</div>
                         <mat-divider baseline=""></mat-divider>
                     </mat-header>
 
-
+                    
                     <div class="nav">
                         <xp-selector selected="{{selected}}" item-selector=".item" index-attribute="name" selectable="">
                             <mat-item name="home" label="[[localize('home', locale)]]" href="#/">
@@ -3965,7 +3965,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                         </xp-selector>
                         <div class="flex"></div>
 
-
+                        
                         <mat-item label="[[localize('feedback', locale)]]" behavior="toggle" target="drawer" href="http://github.com/expandjs/expandjs/issues">
                             <mat-icon class="primary" name="action:feedback"></mat-icon>
                         </mat-item>
@@ -3975,30 +3975,30 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 
             </mat-drawer>
 
-
+            
             <mat-header-panel id="main" mode="fixed">
 
-
+                
                 <mat-header background="blue">
                     <span class="label" hidden$="[[!mobile]]">[[localize(selected, locale)]]</span>
                     <span class="flex"></span>
 
-
+                    
                     <mat-icon-button hidden$="[[mobile]]" icon-src="images/logo.svg" href="http://expandjs.com" target="_blank"></mat-icon-button>
-                    <mat-icon-button hidden$="[[mobile]]" icon-src="images/github.svg" href="http://github.com/expandjs" target="_blank"></mat-icon-button>
+                    <mat-icon-button hidden$="[[mobile]]" icon-src="images/github.svg" href="https://github.com/ExpandJSLabs/app-starter-kit" target="_blank"></mat-icon-button>
                     <mat-icon-button hidden$="[[mobile]]" icon="action:settings" behavior="toggle" target="settingsDialog"></mat-icon-button>
 
-
+                    
                     <mat-icon-button hidden$="[[!mobile]]" icon="navigation:more-vert" behavior="toggle" target="topMenu"></mat-icon-button>
                     <mat-menu id="topMenu" hidden$="[[!mobile]]">
                         <mat-option label="[[localize('settings', locale)]]" behavior="toggle" target="settingsDialog"></mat-option>
-                        <mat-option label="[[localize('view-on-github', locale)]]" href="http://github.com/expandjs" target="_blank"></mat-option>
+                        <mat-option label="[[localize('view-on-github', locale)]]" href="https://github.com/ExpandJSLabs/app-starter-kit" target="_blank"></mat-option>
                         <mat-option label="[[localize('visit-expandjs', locale)]]" href="http://expandjs.com" target="_blank"></mat-option>
                     </mat-menu>
 
                 </mat-header>
 
-
+                
                 <xp-pages id="pages" index-attribute="name" selected="{{selected}}">
                     <xp-page name="home" content="app-page-home" lazy=""></xp-page>
                     <xp-page name="routing" content="app-page-routing" lazy=""></xp-page>
@@ -4006,24 +4006,24 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                     <xp-page name="localization" content="app-page-localization" lazy=""></xp-page>
                 </xp-pages>
 
-
+                
                 <mat-fab icon="content:add" behavior="toggle"></mat-fab>
 
             </mat-header-panel>
 
         </mat-drawer-panel>
 
-
+        
         <mat-dialog id="settingsDialog" label="[[localize('settings', locale)]]" width="412">
 
-
+            
             <label is="mat-label">[[localize('change-theme', locale)]]</label>
             <xp-selector selected="{{theme}}" item-selector=".radio" index-attribute="value" selected-attribute="checked" selectable="">
                 <mat-radio label="[[localize('light', locale)]]" value="light" inline=""></mat-radio>
                 <mat-radio label="[[localize('dark', locale)]]" value="dark" inline=""></mat-radio>
             </xp-selector>
 
-
+            
             <label is="mat-label">[[localize('change-language', locale)]]</label>
             <mat-dropdown selected="{{language}}" selectable="">
                 <mat-option label="Deutsch" value="de"></mat-option>
@@ -4033,7 +4033,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                 <mat-option label="Italiano" value="it"></mat-option>
             </mat-dropdown>
 
-
+            
             <mat-button class="action" label="[[localize('close', locale)]]" color="blue" behavior="toggle" target="settingsDialog"></mat-button>
         </mat-dialog>
 
