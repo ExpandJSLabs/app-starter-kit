@@ -1,0 +1,28 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="app-page-styles">
+
+    <template strip-whitespace>
+
+        <style>
+
+            :host {
+                display: block;
+            }
+
+            :host,
+            :host .wrapper {
+                @apply(--mat-padding-mobile);
+            }
+
+            @media (min-width: 960px) {
+                :host,
+                :host .wrapper {
+                    @apply(--mat-padding-desktop);
+                }
+            }
+        </style>
+
+    </template>
+
+</dom-module>

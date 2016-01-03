@@ -1,0 +1,25 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="app-page-styles.html">
+
+<dom-module id="app-page-localization">
+
+    <template strip-whitespace>
+
+        <style include="app-page-styles"></style>
+
+        <div>[[localize('localization', locale)]]</div>
+    </template>
+
+    <script>
+        Polymer({
+            // ELEMENT
+            is: 'app-page-localization',
+
+            behaviors: [
+                Polymer.AppCommonBehavior
+            ]
+        });
+    </script>
+
+</dom-module>

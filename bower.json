@@ -1,0 +1,9 @@
+{
+  "name": "expandjs-starter-kit",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "xp-elements": "~0.10.0",
+    "mat-elements": "~0.10.0"
+  }
+}
