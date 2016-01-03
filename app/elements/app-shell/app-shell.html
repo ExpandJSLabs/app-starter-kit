@@ -120,14 +120,14 @@
 
                     <!-- DESKTOP OPTIONS -->
                     <mat-icon-button hidden$="[[mobile]]" icon-src="images/logo.svg" href="http://expandjs.com" target="_blank"></mat-icon-button>
-                    <mat-icon-button hidden$="[[mobile]]" icon-src="images/github.svg" href="http://github.com/expandjs" target="_blank"></mat-icon-button>
+                    <mat-icon-button hidden$="[[mobile]]" icon-src="images/github.svg" href="https://github.com/ExpandJSLabs/app-starter-kit" target="_blank"></mat-icon-button>
                     <mat-icon-button hidden$="[[mobile]]" icon="action:settings" behavior="toggle" target="settingsDialog"></mat-icon-button>
 
                     <!-- MOBILE OPTIONS -->
                     <mat-icon-button hidden$=[[!mobile]] icon="navigation:more-vert" behavior="toggle" target="topMenu"></mat-icon-button>
                     <mat-menu id="topMenu" hidden$=[[!mobile]]>
                         <mat-option label="[[localize('settings', locale)]]" behavior="toggle" target="settingsDialog"></mat-option>
-                        <mat-option label="[[localize('view-on-github', locale)]]" href="http://github.com/expandjs" target="_blank"></mat-option>
+                        <mat-option label="[[localize('view-on-github', locale)]]" href="https://github.com/ExpandJSLabs/app-starter-kit" target="_blank"></mat-option>
                         <mat-option label="[[localize('visit-expandjs', locale)]]" href="http://expandjs.com" target="_blank"></mat-option>
                     </mat-menu>
 

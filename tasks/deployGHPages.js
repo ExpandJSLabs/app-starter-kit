@@ -1,11 +1,10 @@
 (function () {
     'use strict';
 
-    var gulp = require('gulp'),
-        $ = require('gulp-load-plugins')();
+    var ghPages = require('gh-pages');
 
-    module.exports = function() {
-        return gulp.src('dist/**/*').pipe($.ghPages());
+    module.exports = function(cb) {
+        ghPages.publish(__dirname + '/../dist', cb);
     };
 
 }());

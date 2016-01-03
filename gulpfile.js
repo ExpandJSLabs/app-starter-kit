@@ -37,6 +37,10 @@
     /***********************************************************************/
 
     gulp.task('vulcanize', tasks.vulcanize);
+    gulp.task('build', ['clean'], function () {
+        runSequence('lint', 'copy', 'create-manifest',
+            'vulcanize', 'minify-html', 'minify-css', 'minify-js', 'optimize-images');
+    });
 
     /***********************************************************************/
     /* DEPLOYING */
@@ -48,19 +52,8 @@
     /* DEFAULT */
     /***********************************************************************/
 
-    gulp.task('default', ['clean'], function (cb) {
-        runSequence(
-            'lint',
-            'copy',
-            'create-manifest',
-            'vulcanize',
-            'minify-html',
-            'minify-css',
-            'minify-js',
-            'optimize-images',
-            'serve:dist',
-            cb
-        );
+    gulp.task('default', ['build'], function (cb) {
+        runSequence('serve:dist', cb);
     });
 
 }());
