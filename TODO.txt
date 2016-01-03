@@ -5,3 +5,4 @@
 3. Add push notifications
 4. Add github pages generator
 5. Add deployment options
+6. Add yo generator
