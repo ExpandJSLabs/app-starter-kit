@@ -1,7 +1,7 @@
 {
     "name": "ExpandJS Starter Kit",
     "short_name": "EJS Starter Kit",
-    "start_url": "/?homescreen=1",
+    "start_url": "/app-starter-kit/?homescreen=1",
     "theme_color": "#F15A29",
     "background_color": "#FAFAFA",
     "display": "standalone",
