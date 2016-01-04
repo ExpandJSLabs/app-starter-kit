@@ -16523,6 +16523,176 @@ Polymer({
             self.fire('xp-window-' + event.type, {firer: self});
         }
     });
+Polymer.XPToastBehaviorImp = {
+
+        /**
+         * Aligns the toast.
+         *
+         * @method align
+         * @returns {Element}
+         */
+        align: function () {
+
+            // Override
+            return this;
+        },
+
+        /**
+         * Hides the toast.
+         *
+         * @method hide
+         * @returns {Element}
+         */
+        hide: function () {
+
+            // Vars
+            var self = this;
+
+            // Checking
+            if (!self.queue[0] || self !== self.queue[0].instance) { return self; }
+
+            // Setting
+            self.showed = false;
+
+            // Shifting
+            self.queue.shift();
+
+            // Entering
+            if (self.queue.length) { self.queue[0].instance._show(self.queue[0].target, self.queue[0].data); }
+
+            return self;
+        },
+
+        /**
+         * Adds the toast to the showing queue.
+         *
+         * @method show
+         * @param {Element | string} [target]
+         * @param {*} [data]
+         * @returns {Element}
+         */
+        show: function (target, data) {
+
+            // Vars
+            var self = this;
+
+            // Pushing
+            self.queue.push({instance: self, target: target, data: data});
+
+            // Showing
+            if (self.queue.length < 2) { self._show(target, data); }
+
+            return self;
+        },
+
+        /**
+         * Toggles the toast.
+         *
+         * @method toggle
+         * @param {Element | string} [target]
+         * @param {*} [data]
+         * @returns {Element}
+         */
+        toggle: function (target, data) {
+
+            // Showing
+            return this.show(target, data);
+        },
+
+        /*********************************************************************/
+
+        /**
+         * Shows the toast.
+         *
+         * @method _show
+         * @param {Element | string} [target]
+         * @param {*} [data]
+         * @returns {Element}
+         * @private
+         */
+        _show: function (target, data) {
+
+            // Asserting
+            XP.assertArgument(XP.isVoid(target) || XP.isElement(target) || XP.isString(target), 1, 'Element or string');
+
+            // Vars
+            var self = this;
+
+            // Setting
+            self.data   = data || self.data;
+            self.target = target || self.target;
+            self.showed = true;
+
+            // Hiding
+            self.debounce('hide', self.hide.bind(self), self.timeout);
+
+            return self;
+        },
+
+        /*********************************************************************/
+
+        // PROPERTIES
+        properties: {
+
+            /**
+             * If set to true, clicking outside will not close the overlay.
+             *
+             * @attribute auto-hide-disabled
+             * @type boolean
+             * @default true
+             */
+            autoHideDisabled: {
+                type: Boolean,
+                value: true
+            },
+
+            /**
+             * The toast's label.
+             *
+             * @attribute label
+             * @type string
+             */
+            label: {
+                reflectToAttribute: true,
+                type: String
+            },
+
+            /**
+             * The toast's timeout.
+             *
+             * @attribute timeout
+             * @type number
+             */
+            timeout: {
+                type: Number,
+                value: 3000
+            }
+        },
+
+        /**
+         * The toasts' queue.
+         *
+         * @property queue
+         * @type Array
+         * @default []
+         * @readonly
+         */
+        queue: [],
+
+        /*********************************************************************/
+
+        // LISTENER
+        created: function () {
+
+            // Classifying
+            this.classList.add('toast');
+        }
+    };
+
+    Polymer.XPToastBehavior = [
+        Polymer.XPOverlayBehavior,
+        Polymer.XPToastBehaviorImp
+    ];
 /**
    * The `<platinum-sw-cache>` element makes it easy to precache specific resources, perform runtime
    * caching, and serve your cached resources when a network is unavailable.
@@ -20973,6 +21143,16 @@ Polymer({
 Polymer({
 
             // ELEMENT
+            is: 'mat-toast',
+
+            // BEHAVIORS
+            behaviors: [
+                Polymer.XPToastBehavior
+            ]
+        });
+Polymer({
+
+            // ELEMENT
             is: 'xp-meta',
 
             // BEHAVIORS
@@ -21111,6 +21291,6 @@ Polymer({
             },
 
             _handleInstall: function () {
-                console.log('Service worker installed!');
+                this.$.swToast.show();
             }
         });
