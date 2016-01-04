@@ -3750,6 +3750,81 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
     </template>
 
     </dom-module>
+<dom-module id="xp-toast-styles" assetpath="../../bower_components/xp-toast-behavior/">
+
+    <template strip-whitespace="">
+
+        <style include="xp-overlay-styles"></style>
+
+        <style>
+            :host {
+                margin: 0;
+                transition: transform 0.5s, visibility 0.5s;
+            }
+
+            :host([showed]) {
+                transform: translate(0, 0);
+            }
+
+            :host(:not([showed])) {
+                opacity: 1 !important;
+            }
+
+            :host .wrapper {
+                opacity: 1;
+                overflow: hidden;
+                text-overflow: ellipsis !important; /* override */
+                transition: opacity 1s;
+                white-space: nowrap !important; /* override */
+            }
+
+            :host([label=""]) .wrapper,
+            :host(:not([label])) .wrapper,
+            :host(:not([showed])) .wrapper {
+                opacity: 0 !important;
+            }
+        </style>
+
+    </template>
+
+</dom-module>
+<dom-module id="mat-toast" assetpath="../../bower_components/mat-toast/">
+
+    <template strip-whitespace="">
+
+        <style include="xp-toast-styles"></style>
+
+        <style>
+            :host {
+                @apply(--mat-font-body);
+                background: hsla(0, 0%, 20%, 1);
+                border-radius: 24px;
+                bottom: 12px;
+                color: hsla(0, 0%, 95%, 1);
+                height: 48px;
+                left: 12px;
+                padding: 14px 24px;
+                right: 12px;
+                transform: translate(0, 72px);
+            }
+
+            /* DESKTOP */
+
+            @media (min-width: 960px) {
+
+                :host {
+                    max-width: 568px;
+                    min-width: 288px;
+                    right: auto;
+                }
+            }
+        </style>
+
+        <div class="wrapper">[[label]]</div>
+
+    </template>
+
+    </dom-module>
 <dom-module id="xp-meta" assetpath="../../bower_components/xp-meta/">
 
     <template strip-whitespace="">
@@ -4032,6 +4107,8 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 
             <mat-button class="action" label="[[localize('close', locale)]]" color="blue" behavior="toggle" target="settingsDialog"></mat-button>
         </mat-dialog>
+
+        <mat-toast id="swToast" label="Caching complete! This app will work offline."></mat-toast>
 
         
         <platinum-sw-register auto-register="" clients-claim="" skip-waiting="" base-uri="bower_components/platinum-sw/bootstrap" on-service-worker-installed="_handleInstall">
