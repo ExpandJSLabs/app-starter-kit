@@ -1,5 +1,8 @@
 {
-	"name": "ExpandJS",
+	"name": "ExpandJS Starter Kit",
+	"short_name": "EJS Starter Kit",
+	"start_url": "/index.html",
+	"display": "standalone",
 	"icons": [
 		{
 			"src": "\/manifest\/android-chrome-36x36.png",
