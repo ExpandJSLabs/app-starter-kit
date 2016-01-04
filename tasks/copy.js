@@ -19,7 +19,7 @@
         }).pipe(gulp.dest('dist'));
 
         bower = gulp.src([
-            'bower_components/webcomponentsjs/**/***/*'
+            'bower_components/{webcomponentsjs,platinum-sw,sw-toolbox}/**/*'
         ]).pipe(gulp.dest('dist/bower_components'));
 
         return merge(app, bower).pipe($.size({title: 'copy'}));

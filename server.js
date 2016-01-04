@@ -42,7 +42,6 @@
         res.render('index');
     });
 
-    // TODO What's this for?!
     // Partials
     router.get('/partial/:name', function (req, res, next) {
         res.render('partial/' + req.params.name, {}, function (error, html) {

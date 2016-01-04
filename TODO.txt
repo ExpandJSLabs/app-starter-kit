@@ -1,8 +1,8 @@
 ??? Create build config file ???
 
 1. Install banner
-2. Add service worker
-3. Add push notifications
-4. Add github pages generator
-5. Add deployment options
-6. Add yo generator
+2. Add push notifications
+3. Add deployment options
+4. Add yo generator
+5. Add tests
+6. Add Travis CI and Sauce Labs

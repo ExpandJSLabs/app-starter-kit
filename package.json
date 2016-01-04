@@ -12,6 +12,7 @@
     "express": "^4.13.3",
     "express-slash": "^2.0.1",
     "gh-pages": "^0.8.0",
+    "glob-all": "^3.0.1",
     "gulp-crisper": "^1.0.0",
     "gulp-cssnano": "^2.0.0",
     "gulp-gh-pages": "^0.5.4",

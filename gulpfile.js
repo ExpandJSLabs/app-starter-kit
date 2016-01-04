@@ -11,7 +11,7 @@
     /***********************************************************************/
 
     gulp.task('serve', tasks.serve);
-    gulp.task('serve:dist', tasks.serveDist);
+    gulp.task('serve:dist', ['build'], tasks.serveDist);
     gulp.task('serve:express', tasks.serveExpress);
 
     /***********************************************************************/
@@ -36,23 +36,24 @@
     /* BUILDING */
     /***********************************************************************/
 
+    gulp.task('cache-config', tasks.cacheConfig);
     gulp.task('vulcanize', tasks.vulcanize);
-    gulp.task('build', ['clean'], function () {
+    gulp.task('build', ['clean'], function (cb) {
         runSequence('lint', 'copy', 'create-manifest',
-            'vulcanize', 'minify-html', 'minify-css', 'minify-js', 'optimize-images');
+            'vulcanize', 'cache-config', 'minify-html', 'minify-css', 'minify-js', 'optimize-images', cb);
     });
 
     /***********************************************************************/
     /* DEPLOYING */
     /***********************************************************************/
 
-    gulp.task('deploy:GHPages', tasks.deployGHPages);
+    gulp.task('deploy:GHPages', ['build'], tasks.deployGHPages);
 
     /***********************************************************************/
     /* DEFAULT */
     /***********************************************************************/
 
-    gulp.task('default', ['build'], function (cb) {
+    gulp.task('default', function (cb) {
         runSequence('serve:dist', cb);
     });
 

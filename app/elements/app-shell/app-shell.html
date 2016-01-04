@@ -26,6 +26,9 @@
 <link rel="import" href="../../../bower_components/xp-script/xp-script.html">
 <link rel="import" href="../../../bower_components/xp-selector/xp-selector.html">
 <link rel="import" href="../../../bower_components/xp-window/xp-window.html">
+<link rel="import" href="../../../bower_components/mat-toast/mat-toast.html">
+<link rel="import" href="../../../bower_components/platinum-sw/platinum-sw-cache.html">
+<link rel="import" href="../../../bower_components/platinum-sw/platinum-sw-register.html">
 
 <link rel="import" href="../app-behaviors/app-common-behavior.html">
 <link rel="import" href="../app-locale/app-locale.html">
@@ -168,9 +171,21 @@
                 <mat-option label="Italiano" value="it"></mat-option>
             </mat-dropdown>
 
-            <!-- TODO This should have a dismiss class to autoclose the dialog ?? -->
             <mat-button class="action" label="[[localize('close', locale)]]" color="blue" behavior="toggle" target="settingsDialog"></mat-button>
         </mat-dialog>
+
+        <mat-toast id="swToast" label="Caching complete! This app will work offline."></mat-toast>
+
+        <!-- SERVICE WORKER -->
+        <platinum-sw-register auto-register
+                              clients-claim
+                              skip-waiting
+                              base-uri="bower_components/platinum-sw/bootstrap"
+                              on-service-worker-installed="_handleInstall">
+            <platinum-sw-cache default-cache-strategy="fastest"
+                               cache-config-file="cache-config.json">
+            </platinum-sw-cache>
+        </platinum-sw-register>
 
     </template>
 
@@ -180,7 +195,6 @@
             is: 'app-shell',
 
             // BEHAVIORS
-            // TODO Mat shell should have have a behavior so you don't have to use mat-shell inside app-shell
             behaviors: [
                 Polymer.MatPaperBehavior,
                 Polymer.XPShellBehavior,
@@ -203,6 +217,10 @@
                     type: String,
                     value: 'backdrop'
                 }
+            },
+
+            _handleInstall: function () {
+                this.$.swToast.show();
             }
         });
     </script>

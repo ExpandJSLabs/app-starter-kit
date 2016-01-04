@@ -7,7 +7,9 @@
     module.exports = function () {
         return gulp.src([
                 'app/**/*.html',
-                '!app/elements/**/*.html'
+                '!app/index.html',
+                '!app/elements/**/*.html',
+                'dist/index.html'
             ])
             .pipe($.htmlMinifier({
                 removeComments: true,
