@@ -1,7 +1,7 @@
 (function () {
     var l = document.createElement('link');
     l.rel = 'import';
+    l.async = true;
     l.href = 'elements/elements.html';
-    var self = this;
     document.head.appendChild(l);
 }())
