@@ -1,7 +1,7 @@
 {
 	"name": "ExpandJS Starter Kit",
 	"short_name": "EJS Starter Kit",
-	"start_url": "/index.html",
+	"start_url": "/",
 	"display": "standalone",
 	"icons": [
 		{
