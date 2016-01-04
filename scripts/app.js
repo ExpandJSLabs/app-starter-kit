@@ -1,1 +1,0 @@
-!function(e){var t=e.createDocumentFragment(),n=e.createElement("script");n.type="text/javascript",n.src="bower_components/webcomponentsjs/webcomponents-lite.min.js",t.appendChild(n);var m=e.createElement("link");m.rel="import",m.href="elements/elements.html",t.appendChild(m),e.head.appendChild(t)}(document);

@@ -1158,8 +1158,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                 display: none !important;
             }
 
-            :host([narrow]),
-            :host([right][showed]) {
+            :host([narrow]) {
                 z-index: 9999 !important;
             }
 
@@ -2004,7 +2003,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
             <div class="main">
                 <div class="spacer"><div class="dummy">[[label]]</div><template is="dom-repeat" items="[[items]]" observe="label value"><div class="dummy">[[_computeLabel(item)]]</div></template></div>
                 <mat-ink class="label" disabled="[[disabled]]" opacity="[[_computeLabelOpacity(floated)]]">[[label]]</mat-ink>
-                <mat-option class="holder" arrow="[[_computeArrow(emptySelection, singleItem)]]" bold="[[selectedBold]]" disabled="[[disabled]]" hint="[[emptySelection]]" label="[[selectedLabel]]" value="[[selectedValue]]" on-blur="_blurHandler" on-focus="_focusHandler" on-xp-activate="_handleShow"></mat-option>
+                <mat-option class="holder" arrow="[[_computeArrow(emptySelection, singleItem)]]" bold="[[selectedBold]]" color="[[selectedColor]]" disabled="[[disabled]]" hint="[[emptySelection]]" label="[[selectedLabel]]" value="[[selectedValue]]" on-blur="_blurHandler" on-focus="_focusHandler" on-xp-activate="_handleShow"></mat-option>
             </div>
             <div class="underline">
                 <mat-ink class="default" opacity="divider"></mat-ink>
@@ -2017,7 +2016,7 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 
         <mat-menu class="overlay" showed="{{showed}}" target="[[holder]]" on-xp-hide="_handleRefire" on-xp-show="_handleRefire">
             <mat-icon class="arrow icon" name="mat:arrow-drop-up" opacity="hint"></mat-icon>
-            <mat-option class="first option" bold="[[selectedBold]]" label="[[selectedLabel]]" value="[[selectedValue]]"></mat-option>
+            <mat-option class="first option" bold="[[selectedBold]]" color="[[selectedColor]]" label="[[selectedLabel]]" value="[[selectedValue]]"></mat-option>
             <div class="options" on-xp-activate="_handleActivate"><content></content></div>
             <mat-divider class="divider" cap=""></mat-divider>
         </mat-menu>
@@ -2439,7 +2438,6 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                 order: 1;
                 position: relative;
                 transition: none;
-                z-index: 0;
             }
 
             :host .header[raised] {
@@ -2455,7 +2453,6 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 
             :host .positioner {
                 @apply(--layout-fit);
-                z-index: 0;
             }
 
             :host .body {
@@ -4033,9 +4030,14 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
                 <mat-option label="Italiano" value="it"></mat-option>
             </mat-dropdown>
 
-            
             <mat-button class="action" label="[[localize('close', locale)]]" color="blue" behavior="toggle" target="settingsDialog"></mat-button>
         </mat-dialog>
+
+        
+        <platinum-sw-register auto-register="" clients-claim="" skip-waiting="" base-uri="bower_components/platinum-sw/bootstrap" on-service-worker-installed="_handleInstall">
+            <platinum-sw-cache default-cache-strategy="fastest" cache-config-file="cache-config.json">
+            </platinum-sw-cache>
+        </platinum-sw-register>
 
     </template>
 
