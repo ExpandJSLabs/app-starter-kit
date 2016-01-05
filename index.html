@@ -1,1 +1,352 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"><title>ExpandJS Starter Kit</title><script src="bower_components/webcomponentsjs/webcomponents-lite.min.js" async></script><link rel="import" href="elements/elements.html" async><style>body{height:100vh;margin:0}app-shell:unresolved{bottom:0;left:0;position:absolute;right:0;top:0;background:hsla(0,0%,98%,1)}app-shell:unresolved::before{height:56px;content:"";display:block;background:#2094f3}@media (min-width:960px){app-shell:unresolved::before{height:64px}}</style><link rel="apple-touch-icon" sizes="57x57" href="manifest/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="manifest/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="manifest/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="manifest/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="manifest/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="manifest/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="manifest/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="manifest/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="manifest/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="manifest/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="manifest/android-chrome-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="manifest/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="manifest/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="manifest/manifest.json"><link rel="mask-icon" href="manifest/safari-pinned-tab.svg" color="#f15a29"><link rel="shortcut icon" href="manifest/favicon.ico"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-TileImage" content="manifest/mstile-144x144.png"><meta name="msapplication-config" content="manifest/browserconfig.xml"><meta name="theme-color" content="#f15a29"></head><body><app-shell></app-shell><script>!function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-71987717-1","auto"),ga("send","pageview");</script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>ExpandJS Starter Kit</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js" async></script>
+    <link rel="import" href="elements/elements.html" async>
+    <style>
+    /*********************************************************************/
+	/* VIEWPORT */
+	/*********************************************************************/
+
+	@viewport {
+	    height: device-height;
+	    max-zoom: 1;
+	    min-zoom: 1;
+	    user-zoom: fixed;
+	    width: device-width;
+	    zoom: 1;
+	}
+
+	/*********************************************************************/
+	/* RESET */
+	/*********************************************************************/
+
+	html {
+	    background: hsla(0, 0%, 98%, 1) !important;
+	    color: hsla(0, 0%, 0%, 0.87);
+	    font-family: RobotoDraft, Roboto, sans-serif;
+	    font-size: 16px;
+	    font-weight: 400;
+	    letter-spacing: 0.01em;
+	    line-height: 24px;
+	    text-overflow: clip;
+	    text-rendering: optimizeLegibility;
+	    white-space: normal;
+	}
+
+	body {
+	    height: 100vh;
+	    margin: 0;
+	}
+
+	/*********************************************************************/
+	/* COOKIE */
+	/*********************************************************************/
+
+	#cookieChoiceInfo {
+	    box-shadow: 0 2px 2px 0 hsla(0, 0%, 0%, 0.14), 0 1px 5px 0 hsla(0, 0%, 0%, 0.12), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
+	    padding: 8px !important;
+	}
+
+	#cookieChoiceInfo a {
+	    border-radius: 2px;
+	    display: inline-block;
+	    font-size: 14px;
+	    font-weight: 500;
+	    height: 28px;
+	    letter-spacing: 0.01em;
+	    line-height: 28px;
+	    margin-left: 8px !important;
+	    padding: 0 8px;
+	    text-transform: uppercase;
+	}
+
+	#cookieChoiceDismiss {
+	    background: #2196F3;
+	    box-shadow: 0 2px 2px 0 hsla(0, 0%, 0%, 0.14), 0 1px 5px 0 hsla(0, 0%, 0%, 0.12), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
+	    color: #FFFFFF;
+	}
+
+	/*********************************************************************/
+	/* SPINNER */
+	/*********************************************************************/
+
+	#spinner {
+	    height: 28px;
+	    left: 50%;
+	    pointer-events: none !important;
+	    position: absolute;
+	    top: 50%;
+	    width: 28px;
+	    transform: translate(-50%, -50%);
+	}
+
+	#spinner .wrapper,
+	#spinner .layer,
+	#spinner .circle {
+	    bottom: 0;
+	    left: 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	}
+
+	#spinner .wrapper {
+	    -webkit-animation: spinner-wrapper-rotate 1568ms linear infinite;
+	    animation: spinner-wrapper-rotate 1568ms linear infinite;
+	}
+
+	#spinner .layer {
+	    opacity: 0;
+	}
+
+	#spinner .layer.one {
+	    -webkit-animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-one 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-one 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-color: hsl(217, 89%, 61%);
+	}
+
+	#spinner .layer.two {
+	    -webkit-animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-two 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-two 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-color: hsl(5, 69%, 54%);
+	}
+
+	#spinner .layer.three {
+	    -webkit-animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-three 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-three 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-color: hsl(44, 100%, 48%);
+	}
+
+	#spinner .layer.four {
+	    -webkit-animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-four 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-layer-rotate 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both, spinner-layer-four 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-color: hsl(151, 83%, 34%);
+	}
+
+	#spinner .clipper {
+	    border-color: inherit;
+	    box-sizing: border-box;
+	    float: left;
+	    height: 100%;
+	    overflow: hidden;
+	    position: relative;
+	    width: 50%;
+	}
+
+	#spinner .circle {
+	    border-color: inherit;
+	    border-bottom-color: transparent !important;
+	    border-radius: 50%;
+	    border-style: solid;
+	    border-width: 3px;
+	    box-sizing: border-box;
+	    height: 100%;
+	    width: 200%;
+	}
+
+	#spinner .left .circle {
+	    -webkit-animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-right-color: transparent !important;
+	    transform: rotate(129deg);
+	}
+
+	#spinner .right .circle {
+	    -webkit-animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    animation: spinner-right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+	    border-left-color: transparent !important;
+	    left: -100%;
+	    transform: rotate(-129deg);
+	}
+
+	/*********************************************************************/
+	/* ANIMATIONS */
+	/*********************************************************************/
+
+	@-webkit-keyframes spinner-wrapper-rotate {
+	    to { transform: rotate(360deg); }
+	}
+
+	@keyframes spinner-wrapper-rotate {
+	    to { transform: rotate(360deg); }
+	}
+
+	@-webkit-keyframes spinner-layer-rotate {
+	    12.5% { transform: rotate(135deg);  }
+	    25%   { transform: rotate(270deg);  }
+	    37.5% { transform: rotate(405deg);  }
+	    50%   { transform: rotate(540deg);  }
+	    62.5% { transform: rotate(675deg);  }
+	    75%   { transform: rotate(810deg);  }
+	    87.5% { transform: rotate(945deg);  }
+	    to    { transform: rotate(1080deg); }
+	}
+
+	@keyframes spinner-layer-rotate {
+	    12.5% { transform: rotate(135deg);  }
+	    25%   { transform: rotate(270deg);  }
+	    37.5% { transform: rotate(405deg);  }
+	    50%   { transform: rotate(540deg);  }
+	    62.5% { transform: rotate(675deg);  }
+	    75%   { transform: rotate(810deg);  }
+	    87.5% { transform: rotate(945deg);  }
+	    to    { transform: rotate(1080deg); }
+	}
+
+	@-webkit-keyframes spinner-layer-one {
+	    from { opacity: 0.99; }
+	    25%  { opacity: 0.99; }
+	    26%  { opacity: 0; }
+	    89%  { opacity: 0; }
+	    90%  { opacity: 0.99; }
+	    100% { opacity: 0.99; }
+	}
+
+	@keyframes spinner-layer-one {
+	    from { opacity: 0.99; }
+	    25%  { opacity: 0.99; }
+	    26%  { opacity: 0; }
+	    89%  { opacity: 0; }
+	    90%  { opacity: 0.99; }
+	    100% { opacity: 0.99; }
+	}
+
+	@-webkit-keyframes spinner-layer-two {
+	    from { opacity: 0; }
+	    15%  { opacity: 0; }
+	    25%  { opacity: 0.99; }
+	    50%  { opacity: 0.99; }
+	    51%  { opacity: 0; }
+	}
+
+	@keyframes spinner-layer-two {
+	    from { opacity: 0; }
+	    15%  { opacity: 0; }
+	    25%  { opacity: 0.99; }
+	    50%  { opacity: 0.99; }
+	    51%  { opacity: 0; }
+	}
+
+	@-webkit-keyframes spinner-layer-three {
+	    from { opacity: 0; }
+	    40%  { opacity: 0; }
+	    50%  { opacity: 0.99; }
+	    75%  { opacity: 0.99; }
+	    76%  { opacity: 0; }
+	}
+
+	@keyframes spinner-layer-three {
+	    from { opacity: 0; }
+	    40%  { opacity: 0; }
+	    50%  { opacity: 0.99; }
+	    75%  { opacity: 0.99; }
+	    76%  { opacity: 0; }
+	}
+
+	@-webkit-keyframes spinner-layer-four {
+	    from { opacity: 0; }
+	    65%  { opacity: 0; }
+	    75%  { opacity: 0.99; }
+	    90%  { opacity: 0.99; }
+	    100% { opacity: 0; }
+	}
+
+	@keyframes spinner-layer-four {
+	    from { opacity: 0; }
+	    65%  { opacity: 0; }
+	    75%  { opacity: 0.99; }
+	    90%  { opacity: 0.99; }
+	    100% { opacity: 0; }
+	}
+
+	@-webkit-keyframes spinner-left-spin {
+	    from { transform: rotate(130deg); }
+	    50%  { transform: rotate(-5deg); }
+	    to   { transform: rotate(130deg); }
+	}
+
+	@keyframes spinner-left-spin {
+	    from { transform: rotate(130deg); }
+	    50%  { transform: rotate(-5deg); }
+	    to   { transform: rotate(130deg); }
+	}
+
+	@-webkit-keyframes spinner-right-spin {
+	    from { transform: rotate(-130deg); }
+	    50%  { transform: rotate(5deg); }
+	    to   { transform: rotate(-130deg); }
+	}
+
+	@keyframes spinner-right-spin {
+	    from { transform: rotate(-130deg); }
+	    50%  { transform: rotate(5deg); }
+	    to   { transform: rotate(-130deg); }
+	}
+
+    body {
+        height: 100vh;
+        margin: 0
+    }
+    
+    app-shell:unresolved {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: hsla(0, 0%, 98%, 1)
+    }
+    
+    app-shell:unresolved::before {
+        height: 56px;
+        content: "";
+        display: block;
+        background: #2094f3
+    }
+    
+    @media (min-width:960px) {
+        app-shell:unresolved::before {
+            height: 64px
+        }
+    }
+    </style>
+    <link rel="apple-touch-icon" sizes="57x57" href="manifest/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="manifest/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="manifest/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="manifest/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="manifest/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="manifest/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="manifest/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="manifest/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="manifest/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="manifest/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="manifest/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="manifest/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="manifest/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="manifest/manifest.json">
+    <link rel="mask-icon" href="manifest/safari-pinned-tab.svg" color="#f15a29">
+    <link rel="shortcut icon" href="manifest/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="manifest/mstile-144x144.png">
+    <meta name="msapplication-config" content="manifest/browserconfig.xml">
+    <meta name="theme-color" content="#f15a29">
+</head>
+
+<body>
+    <app-shell></app-shell>
+    <script>
+    ! function(e, a, t, n, c, o, s) {
+        e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+            (e[c].q = e[c].q || []).push(arguments)
+        }, e[c].l = 1 * new Date, o = a.createElement(t), s = a.getElementsByTagName(t)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s)
+    }(window, document, "script", "//www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-71987717-1", "auto"), ga("send", "pageview");
+    </script>
+</body>
+
+</html>
