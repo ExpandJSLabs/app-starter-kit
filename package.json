@@ -43,7 +43,6 @@
     "start": "gulp",
     "start:express": "gulp serve:express",
     "start:dist": "gulp serve:dist",
-    "lint": "gulp lint",
-    "postinstall": "bower install"
+    "lint": "gulp lint"
   }
 }
