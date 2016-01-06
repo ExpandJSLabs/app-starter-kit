@@ -1,18 +1,13 @@
 language: node_js
 sudo: false
 env:
-    - CC=gcc-4.8
     - CXX=g++-4.8
 addons:
-    firefox: latest
     apt:
         sources:
-            - google-chrome
             - ubuntu-toolchain-r-test
-    packages:
-        - google-chrome-stable
-        - g++-4.8
-        - gcc-4.8
+        packages:
+            - g++-4.8
 node_js:
     - "4.2"
     - "5.3"
