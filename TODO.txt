@@ -2,8 +2,7 @@
 
 1. Add push notifications
 2. Add deployment options
-3. Add yo generator
-4. Add tests
-5. Add Travis CI and Sauce Labs
-6. Add additional layouts
-7. Add static manifest.json and use a generator only for images
+3. Add tests
+4. Add Travis CI and Sauce Labs
+5. Add additional layouts
+6. Add static manifest.json and use a generator only for icons

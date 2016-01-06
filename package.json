@@ -37,7 +37,7 @@
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "gulp test:local",
+    "test": "gulp lint",
     "start": "gulp",
     "start:express": "gulp serve:express",
     "start:dist": "gulp serve:dist",
