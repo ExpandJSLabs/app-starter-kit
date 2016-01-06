@@ -47,7 +47,7 @@
     /* DEPLOYING */
     /***********************************************************************/
 
-    gulp.task('deploy:GHPages', ['build'], tasks.deployGHPages);
+    gulp.task('deploy:GHPages', tasks.deployGHPages);
 
     /***********************************************************************/
     /* DEFAULT */

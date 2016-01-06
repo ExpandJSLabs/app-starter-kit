@@ -5,6 +5,8 @@
     "polymer": "Polymer/polymer#^1.2.0",
     "xp-elements": "~0.10.0",
     "mat-elements": "~0.10.0",
-    "platinum-sw": "polymerelements/platinum-sw#~1.2.3"
+    "platinum-sw": "polymerelements/platinum-sw#~1.2.3",
+    "platinum-https-redirect": "polymerelements/platinum-https-redirect#~1.0.1",
+    "platinum-push-messaging": "polymerelements/platinum-push-messaging#~1.0.5"
   }
 }
