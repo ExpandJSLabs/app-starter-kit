@@ -33,13 +33,14 @@
     "gulp-vulcanize": "^6.1.0",
     "jscs": "^2.7.0",
     "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
     "merge-stream": "^1.0.0",
     "run-sequence": "^1.1.5",
     "xp-fs": "^0.10.0",
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "gulp lint",
+    "test": "gulp build",
     "start": "gulp",
     "start:express": "gulp serve:express",
     "start:dist": "gulp serve:dist",

@@ -3,6 +3,6 @@
 1. Add push notifications
 2. Add deployment options
 3. Add tests
-4. Add Travis CI and Sauce Labs
+4. Add Sauce Labs
 5. Add additional layouts
 6. Add static manifest.json and use a generator only for icons

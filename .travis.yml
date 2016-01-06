@@ -14,4 +14,3 @@ node_js:
 before_script:
     - npm i -g bower gulp
     - bower i
-script: gulp
