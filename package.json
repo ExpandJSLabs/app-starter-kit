@@ -1,5 +1,7 @@
 {
   "name": "expandjs-starter-kit",
+  "license": "BSD-3-Clause",
+  "description": "",
   "version": "0.0.1",
   "main": "server.js",
   "dependencies": {
@@ -30,7 +32,7 @@
     "gulp-size": "^2.0.0",
     "gulp-vulcanize": "^6.1.0",
     "jscs": "^2.7.0",
-    "jshint": "^2.9.1-rc2",
+    "jshint": "^2.8.0",
     "merge-stream": "^1.0.0",
     "run-sequence": "^1.1.5",
     "xp-fs": "^0.10.0",
