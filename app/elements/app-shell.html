@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/mat-button/mat-button.html">
+<link rel="import" href="../../bower_components/mat-checkbox/mat-checkbox.html">
 <link rel="import" href="../../bower_components/mat-dialog/mat-dialog.html">
 <link rel="import" href="../../bower_components/mat-divider/mat-divider.html">
 <link rel="import" href="../../bower_components/mat-drawer-panel/mat-drawer-panel.html">
@@ -21,6 +22,7 @@
 <link rel="import" href="../../bower_components/mat-tabs/mat-tabs.html">
 <link rel="import" href="../../bower_components/mat-toast/mat-toast.html">
 <link rel="import" href="../../bower_components/mat-toolbar/mat-toolbar.html">
+<link rel="import" href="../../bower_components/platinum-push-messaging/platinum-push-messaging.html">
 <link rel="import" href="../../bower_components/platinum-https-redirect/platinum-https-redirect.html">
 <link rel="import" href="../../bower_components/platinum-sw/platinum-sw-cache.html">
 <link rel="import" href="../../bower_components/platinum-sw/platinum-sw-register.html">
@@ -156,8 +158,7 @@
         <mat-dialog id="settingsDialog" label="[[localize('settings', locale)]]" width="412">
 
             <!-- PUSH NOTIFICATIONS -->
-            <!--<label is="mat-label">[[localize('notifications', locale)]]</label>-->
-            <!--<mat-switch label="[[localize('enable-push-notifications', locale)]]"></mat-switch>-->
+            <mat-checkbox disabled label="[[localize('enable-push-notifications', locale)]]"></mat-checkbox>
 
             <!-- THEME -->
             <label is="mat-label">[[localize('change-theme', locale)]]</label>
