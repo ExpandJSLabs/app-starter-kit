@@ -5,7 +5,7 @@
         gulp = require('gulp');
 
     module.exports = function() {
-        return gulp.src('app/elements/elements.html')
+        return gulp.src('app/elements/app-shell.html')
             .pipe($.vulcanize({
                 stripComments: true,
                 inlineCss: true,
